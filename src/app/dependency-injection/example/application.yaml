@@ -1,0 +1,5 @@
+services:
+
+  Controller.Example:
+    class: ../../controller/example/get/GetController
+    arguments: []

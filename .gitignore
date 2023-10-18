@@ -1,0 +1,9 @@
+#vscode
+.vscode
+
+# Dependency directories
+node_modules/
+tmpnodejsnpm-cache/
+
+# dotenv environment variables file
+.env
