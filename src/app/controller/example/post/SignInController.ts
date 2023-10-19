@@ -5,8 +5,14 @@ export const SignInController = async (req: Request, res: Response) => {
     const { email, password, role } = req.body
 
     if (role == 'professor') {
+        const data = {
+            table: 'professor',
+            columns: ['p_email','p_password'],
+            values: [1,2],
+            constants: [email, password]
+          }
         try {
-            const professor = await PostgreSQLRepository.create().getManyFields('professor', ['p_email','p_password'],[1,2], [email, password])
+            const professor = await PostgreSQLRepository.create().getManyFields(data)
             return res.status(200).json({
                 id: professor.id_p,
                 name: professor.p_name,
@@ -19,7 +25,13 @@ export const SignInController = async (req: Request, res: Response) => {
         }
     }
     try {
-        const student = await PostgreSQLRepository.create().getManyFields('student', ['s_email','s_password'],[1,2], [email, password])
+        const data = {
+            table: 'student',
+            columns: ['s_email','s_password'],
+            values: [1,2],
+            constants: [email, password]
+          }
+        const student = await PostgreSQLRepository.create().getManyFields(data)
         return res.status(200).json({
             id: student.id_s,
             name: student.s_name,
