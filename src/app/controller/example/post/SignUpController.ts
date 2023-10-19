@@ -3,10 +3,16 @@ import { Request, Response } from "express";
 
 export const SignUpController = async (req: Request, res: Response) => {
     const { name, email, password, role } = req.body
+    const data = {
+        table: 'professor',
+        columns: ['p_name', 'p_email', 'p_password'],
+        values: ['$1', '$2', '$3'],
+        constants: [name, email, password]
+      }
 
     if (role == 'professor') {
         try {
-            await PostgreSQLRepository.create().insert('professor', ['p_name', 'p_email', 'p_password'], ['$1', '$2', '$3'], [name, email, password])
+            await PostgreSQLRepository.create().insert(data)
             return res.status(200).json({
                 message: 'successful',
                 professor: { name, email, password }
@@ -17,7 +23,13 @@ export const SignUpController = async (req: Request, res: Response) => {
         }
     }
     try {
-        await PostgreSQLRepository.create().insert('student', ['s_name', 's_email', 's_password'], ['$1', '$2', '$3'], [name, email, password])
+        const data = {
+            table: 'student',
+            columns: ['s_name', 's_email', 's_password'],
+            values: ['$1', '$2', '$3'],
+            constants: [name, email, password]
+          }
+        await PostgreSQLRepository.create().insert(data)
         return res.status(200).json({
             message: 'successful',
             student: { name, email, password }
