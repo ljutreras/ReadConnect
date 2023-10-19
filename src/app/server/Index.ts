@@ -1,15 +1,16 @@
 import config from "@app/config/Index";
+import { routerAuth } from "@app/router/Auth";
 import { router } from "@app/router/Index";
-import { register } from "@app/router/example.route";
-import { MongoConnection } from '@context/shared/persistance/MongoConnection'
+import { PostgreSQL } from "@context/shared/postgresql/PostgreSQL";
 import express from 'express';
 
 const app = express();
 
 app.use('/server', router)
-app.use('/servers', register)
+app.use('/postgresql', router)
+app.use('/', routerAuth)
 
-MongoConnection.create()
+PostgreSQL.create()
 
 app.listen(config.PORT, () => {
     console.log('Estas en el puerto ', config.PORT)

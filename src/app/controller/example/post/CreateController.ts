@@ -13,4 +13,3 @@ export const CreateController = async (req: Request, res: Response) => {
         console.error(error)
     }
 }
-// TODO crearlo como clase
