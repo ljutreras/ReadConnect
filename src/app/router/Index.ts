@@ -1,9 +1,10 @@
-import { DeleteController } from "@app/controller/example/delete/DeleteController";
-import { CreateController } from "@app/controller/example/post/CreateController";
-import bodyParser from "body-parser";
 import express from "express";
+import bodyParser from "body-parser";
+import { SignUpController } from "@app/controller/example/post/SignUpController";
+import { SignInController } from "@app/controller/example/post/SignInController";
 
 export const router = express.Router()
 
-router.post('/about', bodyParser.json(), CreateController)
-router.delete('/about', bodyParser.json(), DeleteController)
+router.post('/signup', bodyParser.json(), SignUpController)
+router.post('/signin', bodyParser.json(), SignInController)
+

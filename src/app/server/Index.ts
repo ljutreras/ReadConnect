@@ -1,14 +1,13 @@
 import config from "@app/config/Index";
-import { routerAuth } from "@app/router/Auth";
 import { router } from "@app/router/Index";
+import { routerCourse } from "@app/router/ProfessorRoute";
 import { PostgreSQL } from "@context/shared/postgresql/PostgreSQL";
 import express from 'express';
 
 const app = express();
 
-app.use('/server', router)
-app.use('/postgresql', router)
-app.use('/', routerAuth)
+app.use('/', router)
+app.use('/professor', routerCourse)
 
 PostgreSQL.create()
 
