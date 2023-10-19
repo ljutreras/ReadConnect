@@ -16,6 +16,7 @@ CREATE TABLE profile(
     p_email TEXT NOT NULL UNIQUE,
     p_books_readed TEXT NOT NULL,
     p_books_to_read TEXT NOT NULL,
+    p_password TEXT NOT NULL,
 );
 CREATE TABLE book (
     id_b INTEGER,

@@ -45,14 +45,16 @@ export class PostgreSQLRepository {
     async updateField(options: QueryOptions, id:string[] , valueId: number[]) {
         const { table, columns, values, constants } = options;
         const query = `UPDATE ${table} SET ${columns.map((col, val) => `${col} = $${values[val].toString()}`).join(',')} WHERE ${id} = $${valueId}`;
-        await this.client().query(query, constants);
-    } //UPDATE course SET c_name=$1, c_description=$2 WHERE id_c=$3
+        const result = await this.client().query(query, constants);
+        return result.rowCount;
+    }
     
     async deleteField(options: QueryOptions) {
         const { table, columns, values, constants } = options;
         const query = `DELETE FROM ${table} WHERE ${columns} = $${values}`;
-        await this.client().query(query, constants);
-    } //DELETE FROM course WHERE id_c=$1
+        const result = await this.client().query(query, constants);
+        return result.rowCount;
+    }
 
     static create() {
         return new PostgreSQLRepository()

@@ -5,19 +5,19 @@ import { Request, Response } from "express";
 export const SignInController = async (req: Request, res: Response) => {
     const {email, password} = req.body;
     const data = {
-        table: 'login',
-        columns: ['l_email','l_password'],
+        table: 'profile',
+        columns: ['p_email','p_password'],
         values: [1,2],
         constants: [email, password]
       }
     try {
         const result = await PostgreSQLRepository.create().getManyFields(data)
         return res.status(StatusCode.OK).json({
-            id: result.id_l,
-            firstName: result.l_first_name,
-            lastName: result.l_last_name,
-            email: result.l_email,
-            password: result.l_password
+            id: result.id_p,
+            firstName: result.p_first_name,
+            lastName: result.p_last_name,
+            email: result.p_email,
+            password: result.p_password
         })
     } catch (error: any) {
         if (error.id_l == undefined) return res.status(StatusCode.NOT_FOUND).json()
