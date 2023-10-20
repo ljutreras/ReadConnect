@@ -1,5 +1,5 @@
 import { Pool } from "pg";
-import {InsertOptions, QueryOptions} from "../interface/QueryOptions"
+import {QueryOptions} from "../interface/QueryOptions"
 
 export class PostgreSQLRepository {
     constructor() { }
@@ -15,9 +15,9 @@ export class PostgreSQLRepository {
         return client
     }
 
-    async insert(options: InsertOptions) {
+    async insert(options: QueryOptions) {
         const { table, columns, values, constants } = options;
-        const query = `INSERT INTO ${table} (${columns.join(',')}) VALUES (${values.join(',')})`;
+        const query = `INSERT INTO ${table} (${columns.join(',')}) VALUES (${values.map((_, i) => `$${i+1}`).join(',')})`;
         await this.client().query(query, constants);
     }
 
@@ -39,6 +39,11 @@ export class PostgreSQLRepository {
         const { table, columns, values, constants } = options;
         const query = `SELECT * FROM ${table} WHERE ${columns.map((col, val) => `${col} = $${values[val].toString()}`)}`;
         const res = await this.client().query(query, constants);
+        return res.rows;
+    }
+    async getAll(table: string) {
+        const query = `SELECT * FROM ${table}`;
+        const res = await this.client().query(query);
         return res.rows;
     }
 

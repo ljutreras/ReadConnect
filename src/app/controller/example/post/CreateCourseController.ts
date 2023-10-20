@@ -7,7 +7,7 @@ export const CreateCourseController = async (req: Request, res: Response) =>{
     const data = {
         table: 'course',
         columns: ['p_id', 'c_name', 'c_description'],
-        values: ['$1', '$2', '$3'],
+        values: [1,2,3],
         constants: [id, c_name, c_description]
       }
     try {

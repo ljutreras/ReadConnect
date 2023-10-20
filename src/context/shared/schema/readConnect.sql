@@ -8,19 +8,18 @@ CREATE TABLE login(
     l_password TEXT NOT NULL,
 );
 
-CREATE TABLE profile(
-    id_p SERIAL PRIMARY KEY,
-    l_id INTEGER REFERENCES LOGIN(id_l),
-    p_first_name TEXT NOT NULL,
-    p_last_name TEXT NOT NULL,
-    p_email TEXT NOT NULL UNIQUE,
-    p_books_readed TEXT NOT NULL,
-    p_books_to_read TEXT NOT NULL,
-    p_password TEXT NOT NULL,
+CREATE TABLE users (
+    id_u SERIAL PRIMARY KEY,
+    u_first_name TEXT NOT NULL,
+    u_last_name TEXT NOT NULL,
+    u_email TEXT NOT NULL UNIQUE,
+    u_books_readed TEXT NOT NULL,
+    u_books_to_read TEXT NOT NULL,
+    u_password TEXT NOT NULL
 );
 CREATE TABLE book (
     id_b INTEGER,
-    p_id INTEGER REFERENCES profile(id_p)
+    u_id INTEGER REFERENCES users(id_u),
     b_title TEXT,
     b_isbn TEXT,
     b_pageCount INTEGER,

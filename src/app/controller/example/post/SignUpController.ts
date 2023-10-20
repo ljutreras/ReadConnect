@@ -6,7 +6,7 @@ export const SignUpController = async (req: Request, res: Response) => {
     const data = {
         table: 'professor',
         columns: ['p_name', 'p_email', 'p_password'],
-        values: ['$1', '$2', '$3'],
+        values: [1,2,3],
         constants: [name, email, password]
       }
 
@@ -26,7 +26,7 @@ export const SignUpController = async (req: Request, res: Response) => {
         const data = {
             table: 'student',
             columns: ['s_name', 's_email', 's_password'],
-            values: ['$1', '$2', '$3'],
+            values: [1,2,3],
             constants: [name, email, password]
           }
         await PostgreSQLRepository.create().insert(data)
