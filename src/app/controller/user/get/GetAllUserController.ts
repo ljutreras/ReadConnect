@@ -7,10 +7,7 @@ export const GetAllUserController = async(req: Request, res: Response) => {
         const users = await PostgreSQLRepository.create().getAll('users')
         res.status(StatusCode.OK).json(users)
     } catch (error) {
-        res.status(StatusCode.BAD_REQUEST).json({
-            message: 'invalid value to course',
-            error
-        })
+        res.status(StatusCode.BAD_REQUEST).json(error)
     }
 
 }
