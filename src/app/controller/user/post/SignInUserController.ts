@@ -20,7 +20,7 @@ export const SignInUserController = async (req: Request, res: Response) => {
             password: result.u_password
         })
     } catch (error: any) {
-        if (error.id_l == undefined) return res.status(StatusCode.NOT_FOUND).json()
+        if (error.id_u == undefined) return res.status(StatusCode.NOT_FOUND).json()
         return res.status(StatusCode.BAD_REQUEST).json({error})
     }
 }

@@ -1,5 +1,6 @@
 import { Pool } from "pg";
-import {QueryOptions} from "../interface/QueryOptions"
+import { QueryOptions } from "../interface/QueryOptions"
+import { IBooks } from "../interface/IBooks";
 
 export class PostgreSQLRepository {
     constructor() { }
@@ -17,7 +18,7 @@ export class PostgreSQLRepository {
 
     async insert(options: QueryOptions) {
         const { table, columns, values, constants } = options;
-        const query = `INSERT INTO ${table} (${columns.join(',')}) VALUES (${values.map((_, i) => `$${i+1}`).join(',')})`;
+        const query = `INSERT INTO ${table} (${columns.join(',')}) VALUES (${values.map((_, i) => `$${i + 1}`).join(',')})`;
         await this.client().query(query, constants);
     }
 
@@ -34,7 +35,7 @@ export class PostgreSQLRepository {
         const res = await this.client().query(query, constants);
         return res.rows[0];
     }
-    
+
     async getAllField(options: QueryOptions) {
         const { table, columns, values, constants } = options;
         const query = `SELECT * FROM ${table} WHERE ${columns.map((col, val) => `${col} = $${values[val].toString()}`)}`;
@@ -47,18 +48,27 @@ export class PostgreSQLRepository {
         return res.rows;
     }
 
-    async updateField(options: QueryOptions, id:string[] , valueId: number[]) {
+    async updateField(options: QueryOptions, id: string[], valueId: number[]) {
         const { table, columns, values, constants } = options;
         const query = `UPDATE ${table} SET ${columns.map((col, val) => `${col} = $${values[val].toString()}`).join(',')} WHERE ${id} = $${valueId}`;
         const result = await this.client().query(query, constants);
         return result.rowCount;
     }
-    
+
     async deleteField(options: QueryOptions) {
         const { table, columns, values, constants } = options;
         const query = `DELETE FROM ${table} WHERE ${columns} = $${values}`;
         const result = await this.client().query(query, constants);
         return result.rowCount;
+    }
+
+    insertBookQuery(table: string, book: IBooks[]): string {
+
+        const params = Object.keys(book);
+        const values = Object.values(book).map((val, i) => `$${i + 1}`);
+        const query = `INSERT INTO ${table} (${params.join(', ')}) VALUES (${values.join(', ')});`;
+        return query;
+
     }
 
     static create() {
