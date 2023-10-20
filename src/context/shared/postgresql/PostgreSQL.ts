@@ -7,7 +7,7 @@ export class PostgreSQL {
         const client = new Client({
             user: 'postgres',
             host: 'localhost',
-            database: 'test',
+            database: 'read_connect',
             password: '4wwlvaeU.1',
             port: 5432,
         });

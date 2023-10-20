@@ -2,11 +2,11 @@ import StatusCode from "@context/shared/constants/StatusCode";
 import { PostgreSQLRepository } from "@context/shared/postgresql/PostgreSQLRepository";
 import { Request, Response } from "express";
 
-export const DeleteProfileController = async(req: Request, res: Response) => {
+export const DeleteUserController = async(req: Request, res: Response) => {
     const id = req.params.id;
     const data = {
-        table: 'profile',
-        columns: ['id_p'],
+        table: 'users',
+        columns: ['id_u'],
         values: [1],
         constants: [id]
       }

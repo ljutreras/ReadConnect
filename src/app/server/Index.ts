@@ -9,7 +9,7 @@ const app = express();
 
 app.use('/', router)
 app.use('/professor', routerCourse)
-app.use('/profile', profile)
+app.use('/users', profile)
 
 PostgreSQL.create()
 
