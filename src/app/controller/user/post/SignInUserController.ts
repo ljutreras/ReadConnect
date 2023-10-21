@@ -11,13 +11,15 @@ export const SignInUserController = async (req: Request, res: Response) => {
         constants: [email, password]
       }
     try {
-        const result = await PostgreSQLRepository.create().getManyFields(data)
+        const users = await PostgreSQLRepository.create().getManyFields(data)
         return res.status(StatusCode.OK).json({
-            id: result.id_u,
-            firstName: result.u_first_name,
-            lastName: result.u_last_name,
-            email: result.u_email,
-            password: result.u_password
+            id: users.id_u,
+            firstName: users.u_first_name,
+            lastName: users.u_last_name,
+            email: users.u_email,
+            password: users.u_password,
+            bookReaded: users.u_books_readed,
+            bookToRead: users.u_books_to_read,
         })
     } catch (error: any) {
         if (error.id_u == undefined) return res.status(StatusCode.NOT_FOUND).json()
