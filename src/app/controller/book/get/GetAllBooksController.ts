@@ -7,12 +7,13 @@ export const GetAllBooksController = async (req: Request, res: Response) => {
         const response: any[] = [];
         const users = await PostgreSQLRepository.create().getAll('books')
         users.map((_,i) => {
+            const date = users[i].publisheddate && JSON.parse(users[i].publisheddate)['$date'].substring(0, 10);
             response.push({
                 id: users[i]._id,
                 title: users[i].title,
                 isbn: users[i].isbn,
                 pageCount: users[i].pagecount,
-                publishedDate: JSON.parse(users[i].publisheddate),
+                publishedDate: date,
                 thumbnailUrl: users[i].thumbnailurl,
                 shortDescription: users[i].shortdescription,
                 longDescription: users[i].longdescription,
@@ -23,6 +24,7 @@ export const GetAllBooksController = async (req: Request, res: Response) => {
         })
         res.status(StatusCode.OK).json(response)
     } catch (error) {
+        console.log("🚀 ~ file: GetAllBooksController.ts:26 ~ GetAllBooksController ~ error:", error)
         res.status(StatusCode.BAD_REQUEST).json(error)
     }
 }

@@ -13,7 +13,6 @@ export const UserBookReadedController = async (req: Request, res: Response) => {
 
     try {
         const query = PostgreSQLRepository.create().insertUserBook(data);
-        console.log("🚀 ~ file: UserBookReadedController.ts:16 ~ UserBookReadedController ~ query:", query)
         await PostgreSQLRepository.create().client().query(query);
         return res.status(StatusCode.CREATED).json({ message: 'inserted' });
     } catch (error: any) {

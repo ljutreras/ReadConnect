@@ -2,13 +2,13 @@ import StatusCode from "@context/shared/constants/StatusCode";
 import { PostgreSQLRepository } from "@context/shared/postgresql/PostgreSQLRepository";
 import { Request, Response } from "express";
 
-export const UpdateBookReadedController = async (req: Request, res: Response) => {
+export const DeleteBookReadedController = async (req: Request, res: Response) => {
 
     const { email } = req.body;
     const data = {
         table: 'users',
         columns: ['u_email'],
-        values: [1, 2],
+        values: [1],
         constants: [email]
     }
     try {
@@ -26,8 +26,6 @@ export const UpdateBookReadedController = async (req: Request, res: Response) =>
             bookReaded: newBookReaded,
             bookToRead: users.u_books_to_read,
         }
-        console.log("🚀 ~ file: UpdateBookReadedController.ts:29 ~ UpdateBookReadedController ~ userBook:", userBook)
-
         const dataV2 = {
             table: 'users',
             columns: ['u_first_name', 'u_last_name', 'u_books_readed', 'u_books_to_read'],
@@ -41,9 +39,3 @@ export const UpdateBookReadedController = async (req: Request, res: Response) =>
         return res.status(StatusCode.BAD_REQUEST).json({ error })
     }
 }
-/* 
-
-    const query = PostgreSQLRepository.create().insertUserBook(data);
-        await PostgreSQLRepository.create().client().query(query);
-        return res.status(StatusCode.CREATED).json({ message: 'inserted' });
-*/
