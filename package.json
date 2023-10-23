@@ -2,7 +2,7 @@
   "name": "backend-template",
   "author": "Leonardo Utreras",
   "license": "ISC",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "first backend template",
   "main": "index.js",
   "nodemonConfig": {
