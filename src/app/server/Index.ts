@@ -8,7 +8,7 @@ import cors from 'cors';
 const app = express();
 const corsOptions = {
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'],
+    methods: ['*'],
     allowedHeaders: ['Content-Type'],
 }
 
@@ -17,7 +17,11 @@ app.use(cors(corsOptions));
 app.use('/users', users)
 app.use('/books', books)
 
-PostgreSQL.create()
+try{
+    PostgreSQL.create()
+}catch(e) {
+    console.log('111111', e)
+}
 
 app.listen(config.PORT, () => {
     console.log('Estas en el puerto ', config.PORT)

@@ -24,7 +24,6 @@ export const GetAllBooksController = async (req: Request, res: Response) => {
         })
         res.status(StatusCode.OK).json(response)
     } catch (error) {
-        console.log("🚀 ~ file: GetAllBooksController.ts:26 ~ GetAllBooksController ~ error:", error)
         res.status(StatusCode.BAD_REQUEST).json(error)
     }
 }

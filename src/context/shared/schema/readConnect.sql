@@ -10,12 +10,12 @@ CREATE TABLE login(
 
 CREATE TABLE users (
     id_u SERIAL PRIMARY KEY,
-    u_first_name TEXT NOT NULL,
-    u_last_name TEXT NOT NULL,
-    u_email TEXT NOT NULL UNIQUE,
-    u_books_readed TEXT NOT NULL,
-    u_books_to_read TEXT NOT NULL,
-    u_password TEXT NOT NULL
+    u_first_name TEXT,
+    u_last_name TEXT,
+    u_email TEXT UNIQUE,
+    u_password TEXT
+    u_books_readed JSON[],
+    u_books_to_read JSON[],
 );
 CREATE TABLE books (
     _id SERIAL PRIMARY KEY,
