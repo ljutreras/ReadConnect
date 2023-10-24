@@ -5,11 +5,12 @@ export class PostgreSQL {
 
     connect = async () => {
         const client = new Client({
-            user: 'postgres',
-            host: 'localhost',
-            database: 'read_connect',
-            password: '4wwlvaeU.1',
+            user: 'kpqljntf',
+            host: 'isabelle.db.elephantsql.com',
+            database: 'kpqljntf',
+            password: 'rXGVulkGCylJ1qqfKDxWNMty_52hbuIJ',
             port: 5432,
+            ssl: true,
         });
         try {
             await client.connect()

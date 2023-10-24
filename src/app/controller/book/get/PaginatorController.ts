@@ -36,7 +36,7 @@ export const PaginatorController = async (req: Request, res: Response) => {
 
         return res.status(StatusCode.OK).json({
             data: response,
-            total: totalBooks,
+            totalPage: totalBooks,
             page,
             perPage
         });
