@@ -5,7 +5,7 @@ const env = (key: string) => {
 };
 
 export default {
-    PORT: env('PORT') ?? 3000,
+    PORT: env('PORT') ?? 3001,
     USER_DB: env('USER_DB'),
     HOST_DB: env('HOST_DB'),
     DB: env('DB'),
