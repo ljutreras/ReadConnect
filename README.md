@@ -7,6 +7,8 @@ para empezar, una vez clonado el repositorio, debemos instalar correspondienteme
    npm run dev
 ```
 
+Es importante que el Backend se encuentre en el 'http://localhost:3001/' ya que el FE está leyendo dicho puerto desde el backend 
+
 La documentación de las API's podrás encontrarla en el siguiente [ENLACE](https://readconnect.readme.io/reference/get_users)
 
 ## IMPORTANTE
