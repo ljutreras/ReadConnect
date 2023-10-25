@@ -6,7 +6,7 @@ para empezar, una vez clonado el repositorio, debemos instalar correspondienteme
    npm install
 ```
 
-La documentación de las API's podrás encontrarla en el siguiente [link](https://readconnect.readme.io/reference/get_users)
+La documentación de las API's podrás encontrarla en el siguiente [ENLACE](https://readconnect.readme.io/reference/get_users)
 
 ## IMPORTANTE
 Cabe destacar que es muy probable que no puedas utilizar las herramientas de la pagina de documentación debido a que esta en un servidor local, pero no te preocupes, que siempre existe el plan B
