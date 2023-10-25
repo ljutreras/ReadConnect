@@ -1,25 +1,8 @@
 {
-  "name": "backend-template",
-  "author": "Leonardo Utreras",
-  "license": "ISC",
+  "name": "read-connect-be",
   "version": "1.10.0",
-  "description": "first backend template",
+  "description": "",
   "main": "index.js",
-  "type": "module",
-  "nodemonConfig": {
-    "ignore": [
-      "**/*.test.ts",
-      "**/*.spec.ts",
-      ".git",
-      "node_modules",
-      "tmpnodejsnpm-cache"
-    ],
-    "watch": [
-      "src"
-    ],
-    "exec": "node -r tsconfig-paths/register -r ts-node/register ./src/app/server/Index.ts",
-    "ext": "ts, js"
-  },
   "scripts": {
     "dev": "nodemon",
     "start": "node build/app/server/Index.js",
