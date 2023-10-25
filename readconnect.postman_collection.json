@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "5471d601-1817-4239-91c9-c1a29db6c8a7",
+		"name": "ReadConnect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20768242"
+	},
+	"item": [
+		{
+			"name": "read_connect",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "AllProfile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users"
+									]
+								},
+								"description": "Get all profile on database"
+							},
+							"response": []
+						},
+						{
+							"name": "Profile",
+							"protocolProfileBehavior": {
+								"followOriginalHttpMethod": false
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Leonardo\",\r\n    \"lastName\": \"Utreras\",\r\n    \"email\": \"ljutreras96@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/:email",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										":email"
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": ""
+										}
+									]
+								},
+								"description": "Update a profile if the profile have an valid email"
+							},
+							"response": []
+						},
+						{
+							"name": "SignUp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Jorge\",\r\n    \"lastName\": \"Utreras\",\r\n    \"email\": \"jautreras90@gmail.com\",\r\n    \"password\": \"admin123\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"sign-up"
+									]
+								},
+								"description": "Sign Up a new user with the next body"
+							},
+							"response": []
+						},
+						{
+							"name": "SignIn",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ljutreras96@gmail.com\",\r\n    \"password\": \"admin123\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/sign-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"sign-in"
+									]
+								},
+								"description": "you can get data from the user"
+							},
+							"response": []
+						},
+						{
+							"name": "BookReaded",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 275,\r\n    \"title\": \"The Cloud at Your Service\",\r\n    \"isbn\": \"1935182528\",\r\n    \"pageCount\": 200,\r\n    \"publishedDate\": \"2010-11-22\",\r\n    \"thumbnailUrl\": \"https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rosenberg.jpg\",\r\n    \"shortDescription\": null,\r\n    \"longDescription\": null,\r\n    \"status\": \"PUBLISH\",\r\n    \"authors\": [\r\n        \"Jothy Rosenberg\",\r\n        \"Arthur Mateos\"\r\n    ],\r\n    \"categories\": [\r\n        \"Internet\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/book/readed/:email",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"book",
+										"readed",
+										":email"
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": ""
+										}
+									]
+								},
+								"description": "Add a new book readed from database to user and insert on the database updated"
+							},
+							"response": []
+						},
+						{
+							"name": "BookToRead",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"id\": 275,\r\n        \"title\": \"The Cloud at Your Service\",\r\n        \"isbn\": \"1935182528\",\r\n        \"pageCount\": 200,\r\n        \"publishedDate\": \"2010-11-22\",\r\n        \"thumbnailUrl\": \"https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rosenberg.jpg\",\r\n        \"shortDescription\": null,\r\n        \"longDescription\": null,\r\n        \"status\": \"PUBLISH\",\r\n        \"authors\": [\r\n            \"Jothy Rosenberg\",\r\n            \"Arthur Mateos\"\r\n        ],\r\n        \"categories\": [\r\n            \"Internet\"\r\n        ]\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/book/to-read/:email",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"book",
+										"to-read",
+										":email"
+									],
+									"variable": [
+										{
+											"key": "email",
+											"value": ""
+										}
+									]
+								},
+								"description": "Add a new book to read from database to user and insert on the database updated"
+							},
+							"response": []
+						},
+						{
+							"name": "Profile",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/users/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								},
+								"description": "Delete a user"
+							},
+							"response": []
+						},
+						{
+							"name": "BookReaded",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ljutreras96@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/book/readed/:id_book",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"book",
+										"readed",
+										":id_book"
+									],
+									"variable": [
+										{
+											"key": "id_book",
+											"value": ""
+										}
+									]
+								},
+								"description": "Delete a book readed"
+							},
+							"response": []
+						},
+						{
+							"name": "BookToRead",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ljutreras96@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/book/to-read/:id_book",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"book",
+										"to-read",
+										":id_book"
+									],
+									"variable": [
+										{
+											"key": "id_book",
+											"value": ""
+										}
+									]
+								},
+								"description": "delete a book to read"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "books",
+					"item": [
+						{
+							"name": "Insert",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"_id\": 776,\r\n        \"title\": \"OpenStack in Action\",\r\n        \"isbn\": \"1617292168\",\r\n        \"pageCount\": 0,\r\n        \"thumbnailUrl\": \"https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bumgardner.jpg\",\r\n        \"status\": \"MEAP\",\r\n        \"authors\": [\r\n            \"Cody Bumgardner\"\r\n        ],\r\n        \"categories\": []\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/books/insert",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"books",
+										"insert"
+									]
+								},
+								"description": "Insert many books if with the next structure"
+							},
+							"response": []
+						},
+						{
+							"name": "OneBook",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"pageCount\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/books/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"books",
+										"search"
+									]
+								},
+								"description": "Search a book since title: string or pageCount: number"
+							},
+							"response": []
+						},
+						{
+							"name": "AllBooks",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/books/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"books",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
