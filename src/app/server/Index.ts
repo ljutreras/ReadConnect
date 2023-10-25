@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import config from '../config/Index';
 import { PostgreSQL } from '../../context/shared/postgresql/PostgreSQL';
 import { books } from '../router/BookRoute';
 import { users } from '../router/UsersRoute';
@@ -22,6 +23,6 @@ try{
     console.log('111111', e)
 }
 
-app.listen(3000, () => {
-    console.log('Estas en el puerto ', 3000)
+app.listen(config.PORT, () => {
+    console.log('Estas en el puerto ', config.PORT)
 }) 

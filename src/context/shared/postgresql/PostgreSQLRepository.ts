@@ -1,3 +1,4 @@
+import config from '../../../app/config/Index';
 import { Pool } from "pg";
 import { InsertBook, QueryOptions } from "../interface/QueryOptions"
 import { IBooks } from "../interface/IBooks";
@@ -8,11 +9,11 @@ export class PostgreSQLRepository {
 
     client() {
         const client = new Pool({
-            user: 'kpqljntf',
-            host: 'isabelle.db.elephantsql.com',
-            database: 'kpqljntf',
-            password: 'rXGVulkGCylJ1qqfKDxWNMty_52hbuIJ',
-            port: 5432,
+            user: config.USER_DB,
+            host: config.HOST_DB,
+            database: config.DB,
+            password: config.PASSWORD_DB,
+            port: Number(config.PORT_DB),
             ssl: true,
         });
         return client

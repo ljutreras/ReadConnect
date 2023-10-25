@@ -1,3 +1,4 @@
+import config from '../../../app/config/Index';
 import { Client } from 'pg';
 
 export class PostgreSQL {
@@ -5,11 +6,11 @@ export class PostgreSQL {
 
     connect = async () => {
         const client = new Client({
-            user: 'kpqljntf',
-            host: 'isabelle.db.elephantsql.com',
-            database: 'kpqljntf',
-            password: 'rXGVulkGCylJ1qqfKDxWNMty_52hbuIJ',
-            port: 5432,
+            user: config.USER_DB,
+            host: config.HOST_DB,
+            database: config.DB,
+            password: config.PASSWORD_DB,
+            port: Number(config.PORT_DB),
             ssl: true,
         });
         try {
