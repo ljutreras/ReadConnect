@@ -22,15 +22,12 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "start": "node index.js",
-    "build": "tsc -p tsconfig.prod.json && npm run build:di",
-    "build:di": "cpy 'src/**/*.{json,yaml}' dist/src"
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "chai": "^4.3.7",
     "cors": "^2.8.5",
-    "cpy-cli": "^5.0.0",
     "cucumber": "^6.0.7",
     "dotenv": "^16.3.1",
     "eslint": "^8.47.0",
