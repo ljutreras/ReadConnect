@@ -1,7 +1,7 @@
-import StatusCode from "@context/shared/constants/StatusCode";
-import { ISearchFilters } from "@context/shared/interface/ISearchBook";
-import { PostgreSQLRepository } from "@context/shared/postgresql/PostgreSQLRepository";
 import { Request, Response } from "express";
+import StatusCode from "../../../../context/shared/constants/StatusCode";
+import { ISearchFilters } from "../../../../context/shared/interface/ISearchBook";
+import { PostgreSQLRepository } from "../../../../context/shared/postgresql/PostgreSQLRepository";
 
 export const OneBookController = async (req: Request, res: Response) => {
     const filters: ISearchFilters = req.body;

@@ -1,6 +1,6 @@
-import StatusCode from "@context/shared/constants/StatusCode";
-import { PostgreSQLRepository } from "@context/shared/postgresql/PostgreSQLRepository";
 import { Request, Response } from "express";
+import StatusCode from "../../../../context/shared/constants/StatusCode";
+import { PostgreSQLRepository } from "../../../../context/shared/postgresql/PostgreSQLRepository";
 
 export const GetAllUserController = async(req: Request, res: Response) => {
     try {

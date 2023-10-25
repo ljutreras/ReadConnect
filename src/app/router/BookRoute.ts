@@ -1,9 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { InsertBookController } from '@app/controller/book/post/InsertBooksController';
-import { GetAllBooksController } from '@app/controller/book/get/GetAllBooksController';
-import { OneBookController } from '@app/controller/book/post/OneBookController';
-import { PaginatorController } from '@app/controller/book/get/PaginatorController';
+import { GetAllBooksController } from '../controller/book/get/GetAllBooksController';
+import { PaginatorController } from '../controller/book/get/PaginatorController';
+import { InsertBookController } from '../controller/book/post/InsertBooksController';
+import { OneBookController } from '../controller/book/post/OneBookController';
 
 export const books = express.Router()
 

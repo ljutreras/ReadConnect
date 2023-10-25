@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OneBookController = void 0;
-const StatusCode_1 = __importDefault(require("@context/shared/constants/StatusCode"));
-const PostgreSQLRepository_1 = require("@context/shared/postgresql/PostgreSQLRepository");
+const StatusCode_1 = __importDefault(require("../../../../context/shared/constants/StatusCode"));
+const PostgreSQLRepository_1 = require("../../../../context/shared/postgresql/PostgreSQLRepository");
 const OneBookController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const filters = req.body;
     try {

@@ -1,9 +1,8 @@
-import config from "@app/config/Index";
-import { users } from "@app/router/UsersRoute";
-import { PostgreSQL } from "@context/shared/postgresql/PostgreSQL";
 import express from 'express';
-import { books } from "@app/router/BookRoute";
 import cors from 'cors';
+import { PostgreSQL } from '../../context/shared/postgresql/PostgreSQL';
+import { books } from '../router/BookRoute';
+import { users } from '../router/UsersRoute';
 
 const app = express();
 const corsOptions = {
@@ -23,6 +22,6 @@ try{
     console.log('111111', e)
 }
 
-app.listen(config.PORT, () => {
-    console.log('Estas en el puerto ', config.PORT)
+app.listen(3000, () => {
+    console.log('Estas en el puerto ', 3000)
 }) 

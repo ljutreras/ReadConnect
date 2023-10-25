@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "start": "node dist/src/app/server/Index.js",
+    "start": "node build/app/server/Index.js",
     "build": "tsc"
   },
   "dependencies": {
