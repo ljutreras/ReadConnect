@@ -1,11 +1,27 @@
 {
-  "name": "testexpress",
-  "version": "1.0.0",
-  "description": "",
+  "name": "backend-template",
+  "author": "Leonardo Utreras",
+  "license": "ISC",
+  "version": "1.10.0",
+  "description": "first backend template",
   "main": "index.js",
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules",
+      "tmpnodejsnpm-cache"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "node -r tsconfig-paths/register -r ts-node/register ./src/app/server/Index.ts",
+    "ext": "ts, js"
+  },
   "scripts": {
-    "start": "node build/app/server/Index.js",
-    "build": "tsc"
+    "dev": "nodemon",
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",

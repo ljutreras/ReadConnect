@@ -7,7 +7,7 @@ import { users } from '../router/UsersRoute';
 
 const app = express();
 const corsOptions = {
-    origin: 'fe-readconnect.vercel.app',
+    origin: 'http://localhost:3000',
     methods: ['*'],
     allowedHeaders: ['Content-Type'],
 }
