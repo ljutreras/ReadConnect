@@ -13,7 +13,6 @@ export const UpdateUserController = async (req: Request, res: Response) => {
     }
     try {
         const result = await PostgreSQLRepository.create().updateField(data, ['u_email'], [4])
-        console.log("🚀 ~ file: UpdateUserController.ts:16 ~ UpdateUserController ~ result:", result)
         if (result == 0) return res.status(StatusCode.NOT_FOUND).json()
         return res.status(StatusCode.OK).json({
             message: 'Successful',
